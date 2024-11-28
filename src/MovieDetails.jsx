@@ -16,7 +16,10 @@ function MovieDetails() {
       <p>Year of Release: {details.Year}</p>
       <p>Type: {details.Type}</p>
       <p>imdbID: {details.imdbID}</p>
-      <button className="absolute top-0 -left-40" onClick={() => navigate(-1)}>
+      <button
+        className="hidden md:flex absolute top-0 md:-left-20  lg:-left-40"
+        onClick={() => navigate(-1)}
+      >
         Back
       </button>
     </div>

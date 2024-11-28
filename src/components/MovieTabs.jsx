@@ -1,10 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const MovieTab = ({ movies }) => {
+const MovieTabs = ({ movies }) => {
   const navigate = useNavigate();
   return (
-    <div className="grid grid-cols-4 gap-5 ">
+    <div className="grid lg:grid-cols-4 grid-cols-2 gap-5 mt-6 ">
       {movies?.map((movie, i) => (
         <div
           onClick={() => {
@@ -21,4 +21,4 @@ const MovieTab = ({ movies }) => {
   );
 };
 
-export default MovieTab;
+export default MovieTabs;
