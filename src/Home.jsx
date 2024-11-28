@@ -6,22 +6,24 @@ function Home() {
   const [searchValue, setSearchValue] = useState("trek");
   const [movies, setMovies] = useState([]);
 
-    const getMovieRequest = async (searchValue) => {
-      const url = `${import.meta.env.VITE_API_URL}/?s=${searchValue}&apikey=${
-        import.meta.env.VITE_API_KEY
-      }`;
+  const getMovieRequest = async (searchValue) => {
+    const url = `${
+      import.meta.env.VITE_API_URL || process.env.VITE_API_URL
+    }/?s=${searchValue}&apikey=${
+      import.meta.env.VITE_API_KEY || process.env.VITE_API_KEY
+    }`;
 
-      const response = await fetch(url);
-      const responseJson = await response.json();
+    const response = await fetch(url);
+    const responseJson = await response.json();
 
-      if (responseJson.Search) {
-        setMovies(responseJson.Search);
-      }
-    };
+    if (responseJson.Search) {
+      setMovies(responseJson.Search);
+    }
+  };
 
-    useEffect(() => {
-      getMovieRequest(searchValue);
-    }, [searchValue]);
+  useEffect(() => {
+    getMovieRequest(searchValue);
+  }, [searchValue]);
 
   return (
     <div className=" movie-app w-full ">
